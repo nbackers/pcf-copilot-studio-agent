@@ -1,0 +1,44 @@
+name: Bug report
+description: The control does not build, render or connect as described
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before posting, redact your tenant ID, client ID, environment URL, agent schema name and any tokens.**
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what occurred instead?
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where does it fail?
+      options:
+        - "npm install / build / tests"
+        - "Solution import"
+        - "Control renders but the chat does not connect"
+        - "Chat connects but SSO prompts for sign-in"
+        - "Screen context is not reaching the agent"
+        - "Other"
+    validations:
+      required: true
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host
+      options:
+        - "Canvas app"
+        - "Model-driven form"
+        - "Custom page"
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Browser console output
+      description: Redact tokens and identifiers.
+      render: text

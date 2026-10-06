@@ -1,0 +1,29 @@
+name: Verification result
+description: Report whether silent SSO worked against a real tenant
+labels: [verification]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The SSO token exchange is unit tested against mocks. Results from a real tenant are the most
+        useful contribution here. **Redact tenant, client and environment identifiers.**
+  - type: dropdown
+    id: sso
+    attributes:
+      label: Did the OAuth card get intercepted and exchanged silently?
+      options:
+        - "Yes - no sign-in card was shown"
+        - "No - the sign-in card was shown"
+        - "Exchange returned an error"
+        - "Not tested"
+    validations:
+      required: true
+  - type: input
+    id: allowed-connections
+    attributes:
+      label: Did you set AllowedConnectionNames?
+      placeholder: e.g. yes, one connection / no
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else worth recording
